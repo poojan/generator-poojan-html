@@ -26,22 +26,20 @@ var PoojanGenerator = yeoman.generators.Base.extend({
     this.log(chalk.magenta('You\'re using the fantastic Poojan generator.'));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      name: 'appName',
+      message: 'Would you like to call your app?'
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.appName = props.appName;
 
       done();
     }.bind(this));
   },
 
   app: function () {
-    this.mkdir('app');
-    this.mkdir('app/templates');
+    this.mkdir('src');
+    this.mkdir('build');
 
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
