@@ -1,8 +1,9 @@
 doctype html
-html(ng-app='app')
+html
   head
     title <%= appName %>
     link(href='css/main.css' rel='stylesheet')
   body
     h1 <%= appName %>
-    script(data-main='js/main.js' src='components/requirejs/require.js')
+    script(src='lib/jquery.js')
+    script(src='js/main.js')

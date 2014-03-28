@@ -6,7 +6,6 @@
   var stylus = require('gulp-stylus');
   var changed = require('gulp-changed');
   var livereload = require('gulp-livereload');
-  var rjs = require('gulp-requirejs');
 
   gulp.task('jade', function () {
     var src = 'src/jade/*.jade';
@@ -50,42 +49,22 @@
         .pipe(livereload());
   });
 
+  gulp.task('lib', function () {
+    var src = [
+      'src/components/jquery/dist/jquery.js'
+    ];
+    var dest = './html/lib/';
 
-  gulp.task('default', ['javascript', 'stylus', 'jade', 'fixtures'], function () {
+    gulp.src(src)
+        .pipe(gulp.dest(dest))
+        .pipe(livereload());
+  });
+
+  gulp.task('default', ['javascript', 'stylus', 'jade', 'fixtures', 'lib'], function () {
     gulp.watch('src/jade/*.jade', ['jade']);
     gulp.watch('src/jade/stylesheets/*.styl', ['stylus']);
     gulp.watch('src/js/**/*.js', ['javascript']);
     gulp.watch('src/fixtures/**/*.json', ['fixtures']);
   });
 
-  gulp.task('build', function () {
-    var src = 'src/jade/*.jade';
-    var dest = 'build/';
-
-    gulp.src(src)
-        .pipe(jade())
-        .pipe(gulp.dest(dest));
-
-    gulp.src('src/jade/stylesheets/**/*.styl')
-        .pipe(stylus({ use: ['nib'] }))
-        .pipe(gulp.dest('./build/css'));
-
-    gulp.src('src/js/require.js')
-        .pipe(gulp.dest('build/js/'));
-
-    rjs({
-      baseUrl: 'src/js/',
-      name: 'main',
-      out: 'main.js',
-      paths: {
-        'domReady': './src/components/requirejs-domready/domReady',
-        'angular': './src/components/angular/angular'
-      },
-      shim: {
-        'angular': { 'exports': 'angular' }
-      },
-      almond: true
-    })
-    .pipe(gulp.dest('./build/js/'));
-  });
 })();
