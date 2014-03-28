@@ -1,6 +1,22 @@
 {
   "name": "<%= _.slugify(appName) %>",
   "version": "0.0.0",
-  "dependencies": {}
+  "authors": [
+    "Poojan Shrestha <poojans@gmail.com>"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.11"
+  },
+  "dependencies": {
+    "angular": "~1.2.14",
+    "requirejs-domready": "~2.0.1"
+  }
 }
-

@@ -39,10 +39,28 @@ var PoojanGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     this.mkdir('src');
+    this.mkdir('src/jade');
+    this.mkdir('src/jade/stylesheets');
+    this.mkdir('src/js');
+    this.mkdir('src/css');
     this.mkdir('build');
 
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
+    this.copy('_build.js', 'build.js');
+    this.copy('bowerrc', '.bowerrc');
+
+    this.copy('_gulpfile.js', 'gulpfile.js');
+
+    this.copy('gitignore', '.gitignore');
+
+    this.copy('js/_main.js', 'src/js/main.js');
+    this.copy('js/_app.js', 'src/js/app.js');
+    this.copy('js/_bootstrap.js', 'src/js/bootstrap.js');
+
+    this.copy('jade/stylesheets/_main.styl', 'src/jade/stylesheets/main.styl');
+
+    this.copy('jade/_index.jade', 'src/jade/index.jade');
   },
 
   projectfiles: function () {
