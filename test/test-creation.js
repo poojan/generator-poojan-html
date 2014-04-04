@@ -3,14 +3,14 @@
 var path = require('path');
 var helpers = require('yeoman-generator').test;
 
-describe('poojan generator', function () {
+describe('poojan-html generator', function () {
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
       if (err) {
         return done(err);
       }
 
-      this.app = helpers.createGenerator('poojan:app', [
+      this.app = helpers.createGenerator('poojan-html:app', [
         '../../app'
       ]);
       done();
