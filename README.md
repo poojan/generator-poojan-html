@@ -1,6 +1,6 @@
-# generator-poojan-html [![Build Status](https://secure.travis-ci.org/poojan/generator-poojan-html.png?branch=master)](https://travis-ci.org/poojan/generator-poojan-html)
+# generator-poojan-html [![Build Status](https://api.travis-ci.org/poojan/generator-poojan-html.png?branch=master)](https://travis-ci.org/poojan/generator-poojan-html)
 
-> [Yeoman](http://yeoman.io) generator
+> My Yeoman HTML generator. Uses Gulp, Jade, Stylus.
 
 
 ## Getting Started
