@@ -40,9 +40,8 @@ var PoojanGenerator = yeoman.generators.Base.extend({
   app: function () {
     this.mkdir('src');
     this.mkdir('src/jade');
-    this.mkdir('src/jade/stylesheets');
+    this.mkdir('src/stylesheets');
     this.mkdir('src/js');
-    this.mkdir('src/css');
     this.mkdir('html');
 
     this.copy('_package.json', 'package.json');
@@ -55,7 +54,7 @@ var PoojanGenerator = yeoman.generators.Base.extend({
 
     this.copy('js/_main.js', 'src/js/main.js');
 
-    this.copy('jade/stylesheets/_main.styl', 'src/jade/stylesheets/main.styl');
+    this.copy('stylesheets/_main.styl', 'src/stylesheets/main.styl');
 
     this.copy('jade/_index.jade', 'src/jade/index.jade');
   },

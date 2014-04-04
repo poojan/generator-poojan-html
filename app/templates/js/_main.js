@@ -1,1 +1,6 @@
-console.log('hello world');
+(function () {
+  'use strict';
+
+  console.log('hello world');
+
+})();
