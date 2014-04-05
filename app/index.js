@@ -23,7 +23,7 @@ var PoojanGenerator = yeoman.generators.Base.extend({
     this.log(this.yeoman);
 
     // replace it with a short and sweet description of your generator
-    this.log(chalk.magenta('You\'re using the fantastic Poojan generator.'));
+    this.log(chalk.magenta('You\'re using Poojan\'s HTML generator.'));
 
     var prompts = [{
       name: 'appName',
