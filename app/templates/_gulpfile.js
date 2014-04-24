@@ -6,6 +6,7 @@
   var stylus = require('gulp-stylus');
   var changed = require('gulp-changed');
   var livereload = require('gulp-livereload');
+  var karma = require('gulp-karma');
 
   gulp.task('jade', function () {
     var src = 'src/jade/*.jade';
@@ -14,8 +15,7 @@
     gulp.src(src)
         .pipe(jade())
         .pipe(changed(dest))
-        .pipe(gulp.dest(dest))
-        .pipe(livereload());
+        .pipe(gulp.dest(dest));
   });
 
   gulp.task('stylus', function () {
@@ -25,8 +25,7 @@
     gulp.src(src)
         .pipe(stylus({ use: ['nib'] }))
         .pipe(changed(dest))
-        .pipe(gulp.dest(dest))
-        .pipe(livereload());
+        .pipe(gulp.dest(dest));
   });
 
   gulp.task('javascript', function () {
@@ -35,8 +34,7 @@
 
     gulp.src(src)
         .pipe(changed(dest))
-        .pipe(gulp.dest(dest))
-        .pipe(livereload());
+        .pipe(gulp.dest(dest));
   });
 
   gulp.task('lib', function () {
@@ -46,8 +44,7 @@
     var dest = './html/lib/';
 
     gulp.src(src)
-        .pipe(gulp.dest(dest))
-        .pipe(livereload());
+        .pipe(gulp.dest(dest));
   });
 
   gulp.task('images', function () {
@@ -57,8 +54,32 @@
     var dest = './html/images/';
 
     gulp.src(src)
-        .pipe(gulp.dest(dest))
-        .pipe(livereload());
+        .pipe(gulp.dest(dest));
+  });
+
+  gulp.task('karma', function () {
+    var src = [
+      'html/lib/jquery.js',
+      'html/lib/d3.v3.js',
+      'html/js/**/*.js',
+      'spec/*.js'
+    ];
+    gulp.src(src)
+      .pipe(karma({
+        configFile: 'karma.conf.js',
+        action: 'watch'
+      }))
+      .on('error', function (err) {
+        throw err;
+      });
+  });
+
+  gulp.task('watch', function () {
+    var dest = './html/**';
+    var server = livereload();
+    gulp.watch(dest).on('change', function (file) {
+      server.changed(file.path);
+    });
   });
 
   gulp.task('default', [
@@ -66,7 +87,9 @@
     'javascript',
     'stylus',
     'jade',
-    'images'
+    'images',
+    //'karma',
+    'watch'
   ], function () {
     gulp.watch('src/jade/*.jade', ['jade']);
     gulp.watch('src/stylesheets/*.styl', ['stylus']);
