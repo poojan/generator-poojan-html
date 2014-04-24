@@ -15,8 +15,7 @@
 
     "karma": "^0.12.9",
     "karma-jasmine": "*",
-    "karma-phantomjs-launcher-nonet": "*",
-    "karma-mocha-reporter": "^0.2.3"
+    "karma-phantomjs-launcher-nonet": "*"
   },
   "author": "Poojan Shrestha"
 }
