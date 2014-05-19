@@ -60,7 +60,6 @@
   gulp.task('karma', function () {
     var src = [
       'html/lib/jquery.js',
-      'html/lib/d3.v3.js',
       'html/js/**/*.js',
       'spec/*.js'
     ];
