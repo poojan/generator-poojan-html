@@ -8,12 +8,15 @@
 
 ## Setup
 1. Clone the repo somewhere
-`git clone https://github.com/poojan/generator-poojan-html && cd generator-poojan-html`
+`git clone https://github.com/poojan/generator-poojan-html`
 
-2. Install NPM dependencies
+2. Change directory
+`cd generator-poojan-html`
+
+3. Install NPM dependencies
 `npm install`
 
-3. Symlink the package folder
+4. Symlink the package folder
 `sudo npm link`
 
 ## Run
